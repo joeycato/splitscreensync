@@ -40,6 +40,12 @@ ffmpeg -i ./clip2003.avi -vcodec huffyuv -vf scale=960:540 -r 60 -vsync cfr -an 
 ffmpeg -i ./clip2018.avi -vcodec huffyuv -vf scale=960:540 -r 60 -vsync cfr -an clip2018_60fps_960x540.avi
 ```
 
+```console
+ffmpeg -i ./clip2003.avi -vcodec huffyuv -vf scale=960:540 -r 60 -vsync cfr -an clip2003_60fps_960x540.avi
+ffmpeg -i ./clip2018.avi -vcodec huffyuv -vf scale=960:540 -r 60 -vsync cfr -an clip2018_60fps_960x540.avi
+```
+
+
 * **-i** *inputfile* <span style="color:blue"> -- Specifies the input file</span>
 * **-vcodec** *codec* <span style="color:blue"> -- Chooses a video codec for the output video</span>
 * **-vf scale=** *width:height* <span style="color:blue"> -- Changes the video resolution</span>
