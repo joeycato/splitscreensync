@@ -35,8 +35,10 @@ the segment durations by hand didn't alway feel precise )
 Since I want my final split-screen video to be rendered in **1080p**, I chose to scale each clip to fit within a
 **960x540** window. This size was intentionally chosen to preserve the original 16:9 aspect ratio of the two videos.
 
-`ffmpeg -i ./clip2003.avi -vcodec huffyuv -vf scale=960:540 -r 60 -vsync cfr -an clip2003_60fps_960x540.avi`
-`ffmpeg -i ./clip2018.avi -vcodec huffyuv -vf scale=960:540 -r 60 -vsync cfr -an clip2018_60fps_960x540.avi`
+```shell
+ffmpeg -i ./clip2003.avi -vcodec huffyuv -vf scale=960:540 -r 60 -vsync cfr -an clip2003_60fps_960x540.avi
+ffmpeg -i ./clip2018.avi -vcodec huffyuv -vf scale=960:540 -r 60 -vsync cfr -an clip2018_60fps_960x540.avi
+```
 
 * **-i** *inputfile* <span style="color:blue"> -- Specifies the input file</span>
 * **-vcodec** *codec* <span style="color:blue"> -- Chooses a video codec for the output video</span>
