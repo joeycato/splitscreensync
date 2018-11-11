@@ -4,7 +4,7 @@
 
 Over the last winter break I spent time archiving an old collection of camcorder tapes to hard drive. Most of the
 recordings were just randomly-captured silly moments of yesteryear, but one particular set of videos caught my
-attention: a few scenic joyrides across the familiar streets and neighborhoods of my hometown (Paris, Texas 😀) in 2003.
+attention: a few scenic joyrides across the familiar streets and neighborhoods of my hometown (Paris, Texas 🤠) in 2003.
 	
 <span class="more"></span>
 
@@ -17,7 +17,7 @@ a wonderfully versatile video editing tool. This blog post basically documents t
 
 I should briefly mention that while I work at Netflix, my official role there is as a *UI engineer* so I don't
 consider myself an expert on *video*, even though it's a central component of our business.
-If anything, I'm just doing things like this to learn more! ðŸ˜€ 
+If anything, I'm just doing things like this to learn more! 😀
 
 ## basic approach ( "slice, scale, and splice" )
 The basic synchronization strategy I adopted was to initially split up each video into separate clip segments, demarcated by the timestamps of common geographic locations shared between the two clips ( i.e. all encountered street intersections. ) Afterwards, each *2003* segment was compared with its *2018* counterpart and ( generally speaking ) the shorter/fastest segment video was "slowed down" until its duration matched the longer/slower segment.
@@ -120,7 +120,7 @@ in order to change the resulting duration, I just need to multiply the scale fac
 
 [![Synchronized segment example](sync.gif)](sync.gif)
 
-*Note:* I'm favoring the longer segment duration in the comparisons above to keep this guide simple. It's a safe default to use if you want to maximize scenic footage but it's not always ideal. For example, it doesn't make much sense to slow a video segment to a crawl just because in the other segment a car is stuck waiting patiently ðŸ˜‘ at a red light. For that reason, I actually chose to override this behavior in a few cases.
+*Note:* I'm favoring the longer segment duration in the comparisons above to keep this guide simple. It's a safe default to use if you want to maximize scenic footage but it's not always ideal. For example, it doesn't make much sense to slow a video segment to a crawl just because in the other segment a car is stuck waiting patiently 😑 at a red light. For that reason, I actually chose to override this behavior in a few cases.
 
 ## step 3: "splicing" ( reconnecting the segments )
 
@@ -184,7 +184,7 @@ The following command adds centered labels at the top of each pane of the 960x10
 ### publishing
 
 I'm almost done at this point. I just need to do something about the really large video file which remains ( due to my earlier
-decision of sticking with the lossless AVI format ðŸ˜€ )
+decision of sticking with the lossless AVI format 😀)
 
 That's not a problem since in this final step I'm going to transcode it to a much smaller Internet-friendly MP4 video
 format by using the H.264 codec. Also, since I'm ultimately uploading this video to YouTube anyway, I'll include all of Google's recommending
