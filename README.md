@@ -4,7 +4,7 @@
 
 Over the last winter break I spent time archiving an old collection of camcorder tapes to hard drive. Most of the
 recordings were just randomly-captured silly moments of yesteryear, but one particular set of videos caught my
-attention: a few scenic joyrides across the familiar streets and neighborhoods of my hometown (Paris, Texas ðŸ¤ ) in 2003.
+attention: a few scenic joyrides across the familiar streets and neighborhoods of my hometown (Paris, Texas 😀) in 2003.
 	
 <span class="more"></span>
 
