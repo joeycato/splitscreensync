@@ -2,6 +2,8 @@
 
 [![Synced roadtrip from Paris, Texas](https://img.youtube.com/vi/ojo1l0Wf2EI/0.jpg)](https://www.youtube.com/watch?v=ojo1l0Wf2EI)
 
+![Diagram](https://github.com/joeycato/roadtripreplay/blob/master/diagram.svg)
+
 Over the last winter break I spent time archiving an old collection of camcorder tapes to hard drive. Most of the
 recordings were just randomly-captured silly moments of yesteryear, but one particular set of videos caught my
 attention: a few scenic joyrides across the familiar streets and neighborhoods of my hometown (Paris, Texas 🤠) in 2003.
