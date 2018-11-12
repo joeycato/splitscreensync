@@ -102,7 +102,7 @@ first blush but as the multiple segments are concatenated it could have a cumula
 
 ## step 2: "scaling" ( extending the shorter segments )
 
-Now that all of the clip segments have been extracted, the next step is to evaluate them ( comparing the *2003* versions against *2018*)
+Now that all of the clip segments have been extracted, the next step is to evaluate them ( comparing the *2003* versions against *2018* )
 
 For each pair, I identify the shorter segment and calculate the necessary scale factor which would be 
 multiplied on the other segment in order to match the same duration.
