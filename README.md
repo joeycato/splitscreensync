@@ -1,7 +1,5 @@
 # Split-screen Synchronization with FFmpeg
 
-[![Synced roadtrip from Paris, Texas](youtubepreview.png)](https://www.youtube.com/watch?v=ojo1l0Wf2EI)
-
 Over the last winter break I spent time archiving an old collection of camcorder tapes to hard drive. Most of the
 recordings were just randomly-captured silly moments of yesteryear, but one particular set of videos caught my
 attention: a few scenic joyrides across the familiar streets and neighborhoods of my hometown (Paris, Texas 🤠) in 2003.
@@ -216,6 +214,9 @@ loss, it's a nice compromise since it's perceptibly lossless in most cases while
 
 *Note*: The supported range of CRF is *0* to *51* ( with *0* being lossless and *51* representing worst quality / best
 compression ) If the *-crf* argument isn't included in the command, FFmpeg will assume a default value of *23*.
+
+Here's the final video I created if you want to check out:
+[![Synced roadtrip from Paris, Texas](youtubepreview.png)](https://www.youtube.com/watch?v=ojo1l0Wf2EI)
 
 ## conclusion ##
 
