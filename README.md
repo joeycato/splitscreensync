@@ -70,7 +70,6 @@ GUI ( affectionally named *Syncerator* ) to manage this for me. By writing a cus
 shortcuts to add, edit and delete the points. I also eventually extended it to include a live preview mode ( taking
 advantage of HTML5 Video's adjustable *playbackRate* property. ) 
 
-<center>(Screenshot of *Syncerator* app)</center>
 [![Syncerator](syncerator.jpg)](syncerator.jpg)
 
 *Note:* You might notice above that the two embedded video frames don't exactly match up. This is because my camcorders
