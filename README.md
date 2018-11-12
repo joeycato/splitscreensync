@@ -1,4 +1,4 @@
-# Road Trip Replay - Multi-Video Synchronization with FFmpeg
+# Road Trip Replay - Split-Screen Synchronization with FFmpeg
 
 [![Synced roadtrip from Paris, Texas](https://img.youtube.com/vi/ojo1l0Wf2EI/0.jpg)](https://www.youtube.com/watch?v=ojo1l0Wf2EI)
 
