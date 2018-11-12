@@ -13,11 +13,11 @@ could effectively answer that question just by re-recording the same journeys on
 videos afterwards. Ultimately I wanted to create a split-screen video from this experiment, so accurate synchronization between the two videos was paramount.
 
 And so I decided to embark on a new side project which ended up rewarding me with a much better understanding of [**FFmpeg**](https://www.ffmpeg.org/),
-a wonderfully versatile video editing tool. This blog post basically documents that experiment.
+a wonderfully versatile video editing tool. This blog post basically documents that whole experiment.
 
 I should briefly mention that while I work at Netflix, my official role there is as a *UI engineer* so I don't
 consider myself an expert on *video*, even though it's a central component of our business.
-If anything, I'm just doing things like this to learn more! 😀
+If anything, I'm just doing fun things like this to learn more! 😀
 
 ## basic approach ( "slice, scale, and splice" )
 The basic synchronization strategy I adopted was to initially split up each video into separate clip segments, demarcated by the timestamps of common geographic locations shared between the two clips ( i.e. all encountered street intersections. ) Afterwards, each *2003* segment was compared with its *2018* counterpart and ( generally speaking ) the shorter/fastest segment video was "slowed down" until its duration matched the longer/slower segment.
