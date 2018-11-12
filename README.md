@@ -83,8 +83,10 @@ I just accepted it.
 Once I have a list of curated timestamps, I can then iterate through them and extract the in-between segments:
 
 // Example of first segment from each clip being extracted
-```ffmpeg -ss 0 -t 2 -i clip2003_60fps_960x540.avi -vcodec huffyuv -r 240 -vsync cfr segment_2003_1.avi```
-```ffmpeg -ss 0 -t 3 -i clip2018_60fps_960x540.avi -vcodec huffyuv -r 240 -vsync cfr segment_2018_1.avi```
+```bash
+ffmpeg -ss 0 -t 2 -i clip2003_60fps_960x540.avi -vcodec huffyuv -r 240 -vsync cfr segment_2003_1.avi
+ffmpeg -ss 0 -t 3 -i clip2018_60fps_960x540.avi -vcodec huffyuv -r 240 -vsync cfr segment_2018_1.avi
+```
 * **-ss** *seconds* <span style="color:blue"> -- Seek to the starting timestamp position</span>
 * **-t** *seconds* <span style="color:blue"> -- Limit duration to this amount</span>
 
@@ -117,7 +119,9 @@ To actually change the duration on the video itself, I'm basically going to be o
 FFmpeg exposes a **setpts** filter for customizing this. In this context, it helps to think of the current PTS as a variable. So
 in order to change the resulting duration, I just need to multiply the scale factor as follows:
 
-```ffmpeg -i segment_2003_1.avi -vf "setpts=(1.5)*PTS" -vcodec huffyuv -vsync cfr segment_2003_1_scaled.avi```
+```bash
+ffmpeg -i segment_2003_1.avi -vf "setpts=(1.5)*PTS" -vcodec huffyuv -vsync cfr segment_2003_1_scaled.avi
+```
 * **-vf** *filter* <span style="color:blue"> -- Set a custom video filter</span>
 
 [![Synchronized segment example](sync.gif)](sync.gif)
@@ -129,6 +133,7 @@ in order to change the resulting duration, I just need to multiply the scale fac
 At this point I've compared all of the segments so finally I'm going to use them to recreate the full videos - but include the newer (i.e. longer) versions this time.
 To simplify this, I'm creating an ordered list of clips for each year:
 
+```bash
     // segments2003.txt
     file 'segment_2003_1_scaled.avi'
     file 'segment_2003_2.avi'
@@ -144,11 +149,14 @@ To simplify this, I'm creating an ordered list of clips for each year:
     file 'segment_2018_4.avi'
     file 'segment_2018_5_scaled.avi'
     ...
+```    
 
 Now they can be joined together:
 
-```ffmpeg -f concat -i segments2003.txt -vcodec huffyuv -vsync cfr -r 60 final2003.avi```
-```ffmpeg -f concat -i segments2018.txt -vcodec huffyuv -vsync cfr -r 60 final2018.avi```
+```bash
+ffmpeg -f concat -i segments2003.txt -vcodec huffyuv -vsync cfr -r 60 final2003.avi
+ffmpeg -f concat -i segments2018.txt -vcodec huffyuv -vsync cfr -r 60 final2018.avi
+```
 * **-f concat** - <span style="color:blue">Specifies input format as a list of files to join</span>
 
 Once the segments are concatenated, I'm adding the **-r 60** argument to restore the original framerate ( since the
@@ -160,7 +168,9 @@ earlier *240fps* was only needed to help align the extracted and scaled segments
 This final stage is mostly focused on presentation. To achieve a split-screen effect, I basically need to vertically stack the
 final videos together. Once again, FFmpeg makes things easy for us:
 
-```ffmpeg -i final2003.avi -i final2018.avi -vcodec huffyuv -filter_complex vstack final_splitscreen.avi```
+```bash
+ffmpeg -i final2003.avi -i final2018.avi -vcodec huffyuv -filter_complex vstack final_splitscreen.avi
+```
 * **-filter_complex** *filterType* <span style="color:blue"> --Select complex video filter</span>
 
 ( The **vstack** filter type above is informing FFmpeg to apply a "vertical stack" layout on the two input videos. )
@@ -172,14 +182,16 @@ used. )
 
 The following command adds centered labels at the top of each pane of the 960x1080p video:
 
-```ffmpeg -i final_splitscreen.avi```
-```-vf "[in]drawtext=fontfile=./fonts/LCDMN___.ttf: text='MARCH 18, 2018': fontcolor=7DE06F: fontsize=34:```
-```     box=1: boxcolor=black@1.0: boxborderw=5:```
-```     x=(w-text_w)/2: y=540+20,```
-```     drawtext=fontfile=./fonts/LCDMN___.ttf: text='OCTOBER 27, 2003': fontcolor=FF9A3D: fontsize=34:```
-```     box=1: boxcolor=black@1.0: boxborderw=5:```
-```     x=(w-text_w)/2: y=20"```
-```-vcodec huffyuv final_splitscreen_labeled.avi```
+```bash
+ffmpeg -i final_splitscreen.avi
+    -vf "[in]drawtext=fontfile=./fonts/LCDMN___.ttf: text='MARCH 18, 2018': fontcolor=7DE06F: fontsize=34:
+        box=1: boxcolor=black@1.0: boxborderw=5:
+        x=(w-text_w)/2: y=540+20,
+        drawtext=fontfile=./fonts/LCDMN___.ttf: text='OCTOBER 27, 2003': fontcolor=FF9A3D: fontsize=34:
+	box=1: boxcolor=black@1.0: boxborderw=5:
+        x=(w-text_w)/2: y=20"
+   -vcodec huffyuv final_splitscreen_labeled.avi
+```
 
 [![BTTF-style label](bttf_small.png)](bttf_small.png)
 
@@ -192,9 +204,11 @@ That's not a problem since in this final step I'm going to transcode it to a muc
 format by using the H.264 codec. Also, since I'm ultimately uploading this video to YouTube anyway, I'll include all of Google's recommending
 settings ( Credit to Jernej Virag for nicely documenting the extra params [here](https://www.virag.si/2015/06/encoding-videos-for-youtube-with-ffmpeg/)):
 
-```ffmpeg -i final_splitscreen_labeled.avi -codec:v libx264```
-```-crf 21 -bf 2 -flags +cgop -pix_fmt yuv420p -codec:a aac```
-```-strict -2 -b:a 384k -r:a 48000 -movflags faststart final_splitscreen_labeled.mp4```
+```bash
+ffmpeg -i final_splitscreen_labeled.avi -codec:v libx264
+   -crf 21 -bf 2 -flags +cgop -pix_fmt yuv420p -codec:a aac
+   -strict -2 -b:a 384k -r:a 48000 -movflags faststart final_splitscreen_labeled.mp4
+```
 
 Now is a good time to mention that the above command will actually produce a *lossy* video, although the [**Constant
 Rate Factor**](https://trac.ffmpeg.org/wiki/Encode/H.264#crf) ( H.264's default quality setting )
