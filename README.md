@@ -1,6 +1,6 @@
 # Split-screen Synchronization with FFmpeg
 
-[![Synced roadtrip from Paris, Texas](https://img.youtube.com/vi/ojo1l0Wf2EI/0.jpg)](https://www.youtube.com/watch?v=ojo1l0Wf2EI)
+[![Synced roadtrip from Paris, Texas](youtubepreview.png)](https://www.youtube.com/watch?v=ojo1l0Wf2EI)
 
 Over the last winter break I spent time archiving an old collection of camcorder tapes to hard drive. Most of the
 recordings were just randomly-captured silly moments of yesteryear, but one particular set of videos caught my
